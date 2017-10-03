@@ -5,7 +5,14 @@ import json
 import requests
 from flask import Flask, request
 
+import numpy as np
 import tensorflow as tf
+from tensorflow.contrib.legacy_seq2seq.python.ops import seq2seq
+import word_token
+import jieba
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 app = Flask(__name__)
 
