@@ -1,3 +1,5 @@
+# -*- coding: UTF-8 -*-
+
 import os
 import sys
 import json
@@ -11,28 +13,28 @@ from tensorflow.contrib.legacy_seq2seq.python.ops import seq2seq
 import word_token
 import jieba
 
-# reload(sys)
-# sys.setdefaultencoding('utf-8')
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 
-# # 输入序列长度
-# input_seq_len = 5
-# # 输出序列长度
-# output_seq_len = 5
-# # 空值填充0
-# PAD_ID = 0
-# # 输出序列起始标记
-# GO_ID = 1
-# # 结尾标记
-# EOS_ID = 2
-# # LSTM神经元size
-# size = 8
-# # 最大输入符号数
-# num_encoder_symbols = 32
-# # 最大输出符号数
-# num_decoder_symbols = 32
-# # 初始学习率
-# init_learning_rate = 1
+# 输入序列长度
+input_seq_len = 5
+# 输出序列长度
+output_seq_len = 5
+# 空值填充0
+PAD_ID = 0
+# 输出序列起始标记
+GO_ID = 1
+# 结尾标记
+EOS_ID = 2
+# LSTM神经元size
+size = 8
+# 最大输入符号数
+num_encoder_symbols = 32
+# 最大输出符号数
+num_decoder_symbols = 32
+# 初始学习率
+init_learning_rate = 1
 
 # wordToken = word_token.WordToken()
 
