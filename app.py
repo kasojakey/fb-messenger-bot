@@ -47,6 +47,7 @@ sess = tf.Session()
 encoder_inputs, decoder_inputs, target_weights, outputs, loss, update, saver, learning_rate_decay_op, learning_rate = get_model(feed_previous=True)
 saver.restore(sess, './model/demo')
 
+
 def get_id_list_from(sentence):
     sentence_id_list = []
     seg_list = jieba.cut(sentence)
