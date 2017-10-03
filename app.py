@@ -36,16 +36,16 @@ num_decoder_symbols = 32
 # 初始学习率
 init_learning_rate = 1
 
-# wordToken = word_token.WordToken()
+wordToken = word_token.WordToken()
 
-# # 放在全局的位置，为了动态算出num_encoder_symbols和num_decoder_symbols
-# max_token_id = wordToken.load_file_list(['./samples/question', './samples/answer'])
-# num_encoder_symbols = max_token_id + 5
-# num_decoder_symbols = max_token_id + 5
+# 放在全局的位置，为了动态算出num_encoder_symbols和num_decoder_symbols
+max_token_id = wordToken.load_file_list(['./samples/question', './samples/answer'])
+num_encoder_symbols = max_token_id + 5
+num_decoder_symbols = max_token_id + 5
 
-# sess = tf.Session()
-# encoder_inputs, decoder_inputs, target_weights, outputs, loss, update, saver, learning_rate_decay_op, learning_rate = get_model(feed_previous=True)
-# saver.restore(sess, './model/demo')
+sess = tf.Session()
+encoder_inputs, decoder_inputs, target_weights, outputs, loss, update, saver, learning_rate_decay_op, learning_rate = get_model(feed_previous=True)
+saver.restore(sess, './model/demo')
 
 def get_id_list_from(sentence):
     sentence_id_list = []
