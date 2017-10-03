@@ -120,26 +120,6 @@ def predict(input_seq):
             return outputs_seq
 
 
-# # Subclass fbchat.Client and override required methods
-# class EchoBot(Client):
-#     def onMessage(self, author_id, message, thread_id, thread_type, **kwargs):
-#         self.markAsDelivered(author_id, thread_id)
-#         self.markAsRead(author_id)
-
-#         # print('author_id:', author_id)
-#         # print('thread_id:', thread_id)
-#         # print('self.uid:', self.uid)
-
-#         # log.info("Message from {} in {} ({}): {}".format(author_id, thread_id, thread_type.name, message))
-
-#         # If you're not the bot, processing
-#         if author_id != self.uid:
-#             print(message)
-#             resultMessage = predict(message)
-#             if resultMessage:
-#                 self.sendMessage(resultMessage, thread_id=thread_id, thread_type=thread_type)
-
-
 app = Flask(__name__)
 
 
@@ -173,9 +153,10 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-
-                    send_message(sender_id, "roger that!")
-
+                    resultMessage = predict(message)
+                    if resultMessage:
+                       send_message(sender_id, resultMessage)
+                
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
 
@@ -218,6 +199,7 @@ def log(message):  # simple wrapper for logging to stdout on heroku
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 # 输入序列长度
 input_seq_len = 5
