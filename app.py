@@ -5,6 +5,8 @@ import json
 import requests
 from flask import Flask, request
 
+import tensorflow as tf
+
 app = Flask(__name__)
 
 
